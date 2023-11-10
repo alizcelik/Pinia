@@ -16,6 +16,16 @@ export const useCartStore = defineStore("CartStore", {
         this.items.push({ ...item });
       }
     },
+    calculateTotal() {
+      let total = 0;
+      this.items.forEach((item) => {
+        total += item.price;
+      });
+      return total;
+    },
+    clearItem(name) {
+      this.items = this.items.filter((item) => item.name !== name);
+    },
   },
 
   //getters
