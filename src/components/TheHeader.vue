@@ -1,7 +1,7 @@
 <script>
 // imports
 import { useAuthUserStore } from "../stores/AuthUserStore";
-import { mapWritableState } from "pinia";
+import { mapState } from "pinia";
 import CartWidget from "./CartWidget.vue";
 
 export default {
@@ -10,7 +10,7 @@ export default {
   },
 
   computed: {
-    ...mapWritableState(useAuthUserStore, {
+    ...mapState(useAuthUserStore, {
       user: "username",
     }),
   },
