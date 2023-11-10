@@ -16,4 +16,13 @@ export const useCartStore = defineStore("CartStore", {
       }
     },
   },
+
+  //getters
+  getters: {
+    count: (state) => state.items.length,
+
+    isEmpty(state) {
+      return state.const === 0;
+    },
+  },
 });
