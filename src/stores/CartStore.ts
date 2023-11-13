@@ -23,6 +23,7 @@ export const useCartStore = defineStore("CartStore", {
     },
     addItems(count, item) {
       count = parseInt(count);
+      //throw new Error("Method not implemented.");
       for (let index = 0; index < count; index++) {
         this.items.push({ ...item });
       }

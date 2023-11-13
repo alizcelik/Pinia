@@ -9,6 +9,16 @@ import { useProductStore } from "@/stores/ProductStore";
 const productStore = useProductStore();
 const cartStore = useCartStore();
 //const { products } = storeToRefs(useProductStore());
+cartStore.$onAction(({ name, store, args, after, onError }) => {
+  if (name === "addItems") {
+    after(() => {
+      console.log(args[0]);
+    });
+    onError((error) => {
+      console.log(error);
+    });
+  }
+});
 
 productStore.fill();
 </script>
