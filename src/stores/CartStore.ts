@@ -48,7 +48,7 @@ export const useCartStore = defineStore("CartStore", {
     count: (state) => state.items.length,
 
     isEmpty(state) {
-      return state.const === 0;
+      return state.count === 0;
     },
 
     grouped: (state) => {
