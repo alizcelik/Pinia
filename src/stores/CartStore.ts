@@ -1,4 +1,4 @@
-import { defineStore } from "pinia";
+import { defineStore, acceptHMRUpdate } from "pinia";
 import { groupBy } from "lodash";
 import { useAuthUserStore } from "./AuthUserStore";
 
@@ -6,6 +6,7 @@ export const useCartStore = defineStore("CartStore", {
   state: () => {
     return {
       items: [],
+      test: "hello world",
     };
   },
 
@@ -68,3 +69,7 @@ export const useCartStore = defineStore("CartStore", {
     groupCount: (state) => (name) => state.grouped[name].length,
   },
 });
+
+if (import.meta.hot) {
+  import.meta.hot.accept(acceptHMRUpdate(useCartStore, import.meta.hot));
+}
